@@ -72,15 +72,18 @@ class User extends Authenticatable
 
     public function canAccessPanel(Panel $panel): bool
     {
+        // LOGGING DEBUG (Cek nanti di storage/logs/laravel.log)
+        \Illuminate\Support\Facades\Log::info("Cek Akses Panel: " . $panel->getId() . " | User: " . $this->email . " | Role: " . $this->getRoleNames());
+
         if ($panel->getId() === 'admin') {
-            // Hanya super_admin yang boleh masuk /app (Admin Panel)
+            // Coba paksa return true dulu untuk mengetes apakah ini sumber masalahnya
+            // return true;
+
             return $this->hasRole('super_admin');
         }
 
         if ($panel->getId() === 'dashboard') {
-            // Semua user (termasuk admin) boleh masuk /dashboard (User Panel)
             return true;
-            // Nanti bisa ditambah: return $this->hasVerifiedEmail();
         }
 
         return false;
