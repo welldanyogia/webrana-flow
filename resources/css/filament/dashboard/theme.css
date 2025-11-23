@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+    --color-gray-50: #fafafa;
+    --color-gray-100: #f4f4f5;
+    --color-gray-200: #e4e4e7;
+    --color-gray-300: #d4d4d8;
+    --color-gray-400: #a1a1aa;
+    --color-gray-500: #71717a;
+    --color-gray-600: #52525b;
+    --color-gray-700: #3f3f46;
+    --color-gray-800: #27272a;
+    --color-gray-900: #18181b;
+    --color-gray-950: #09090b;
+}
+
+/* --- VERCEL CARD STYLE OVERRIDES --- */
+
+/* 1. Ubah Baris Tabel Menjadi Kartu (Grid Card) */
+.fi-ta-record {
+    @apply !bg-white dark:!bg-zinc-900;
+    @apply !border !border-gray-200 dark:!border-zinc-800;
+    @apply !rounded-xl;
+    @apply !p-6;
+    @apply !transition !duration-200 !ease-in-out;
+    @apply !flex !flex-col !gap-4;
+
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.03);
+}
+
+/* 2. Efek Hover */
+.fi-ta-record:hover {
+    @apply !border-gray-400 dark:!border-zinc-600;
+    @apply !shadow-lg dark:!shadow-none;
+    transform: translateY(-2px);
+}
+
+/* 3. Bersihkan Background Table Container */
+.fi-ta-content,
+.fi-ta,
+.fi-ta-table {
+    @apply !bg-transparent !shadow-none !ring-0 !border-0;
+}
+
+/* 4. Sembunyikan Header Tabel */
+.fi-ta-header-cell {
+    @apply !hidden;
+}
+
+/* 5. Navigasi Atas (TopBar) */
+.fi-topbar {
+    @apply !border-b !border-gray-200 dark:!border-zinc-800;
+    @apply !bg-white/80 dark:!bg-black/80 !backdrop-blur-md;
+    @apply !sticky !top-0 !z-50;
+}
+
+/* 6. Sembunyikan Sidebar */
+.fi-sidebar {
+    @apply !hidden lg:!hidden;
+}
+
+/* 7. Judul Halaman Besar */
+.fi-header-heading {
+    @apply !font-extrabold !tracking-tight !text-3xl;
+}
+
+/* 8. Tombol Primary */
+.fi-btn-primary {
+    @apply !bg-black !text-white dark:!bg-white dark:!text-black;
+    @apply !border !border-transparent hover:!opacity-80;
+}
