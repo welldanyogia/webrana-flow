@@ -75,16 +75,16 @@ class User extends Authenticatable
         // LOGGING DEBUG (Cek nanti di storage/logs/laravel.log)
         \Illuminate\Support\Facades\Log::info("Cek Akses Panel: " . $panel->getId() . " | User: " . $this->email . " | Role: " . $this->getRoleNames());
 
-        if ($panel->getId() === 'admin') {
-            // Coba paksa return true dulu untuk mengetes apakah ini sumber masalahnya
-            // return true;
-
-            return $this->hasRole('super_admin');
-        }
-
-        if ($panel->getId() === 'dashboard') {
-            return true;
-        }
+//        if ($panel->getId() === 'admin') {
+//            // Coba paksa return true dulu untuk mengetes apakah ini sumber masalahnya
+//            // return true;
+//
+//            return $this->hasRole('super_admin');
+//        }
+//
+//        if ($panel->getId() === 'dashboard') {
+//            return true;
+//        }
 
         return true;
     }
