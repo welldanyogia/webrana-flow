@@ -12,3 +12,13 @@ Route::middleware(['web', 'auth'])->group(function () {
     Route::get('/auth/github/redirect', [GitHubController::class, 'redirect'])->name('github.connect');
     Route::get('/auth/github/callback', [GitHubController::class, 'callback']);
 });
+
+Route::get('/ping-server', function() {
+    return response()->json([
+        'status' => 'alive',
+        'domain' => request()->getHost(),
+        'scheme' => request()->getScheme(),
+        'ip' => request()->ip(),
+        'secure' => request()->secure(),
+    ]);
+});
